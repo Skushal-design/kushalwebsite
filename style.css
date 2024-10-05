@@ -1,0 +1,910 @@
+/* Navbar Styles */
+#nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+    padding: 10px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Navbar Links */
+#nav-bar a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: all 0.4s ease; /* Smooth transition for all effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for normal state */
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+}
+
+/* Hover Effect with Glow and Gradient */
+#nav-bar a:hover {
+    color: #f8d210; /* Bright gold on hover */
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, #ffcc00, #f8d210, #ff9d00); /* Gradient border */
+    border-image-slice: 1;
+    background-color: rgba(255, 204, 0, 0.1); /* Light golden background */
+    box-shadow: 0 6px 12px rgba(255, 204, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.2); /* Glow effect */
+    transform: translateY(-3px); /* Slight 3D "pop-out" on hover */
+    z-index: 2; /* Stay above sweep animation */
+}
+
+/* Light Sweep Effect */
+#nav-bar a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -200%; /* Further off-screen start for a smooth effect */
+    width: 300%; /* Larger width for slower, smoother sweep */
+    height: 100%;
+    background: linear-gradient(-45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1; /* Behind the text */
+    animation: sweep 6s linear infinite;
+}
+
+/* Sweep Animation */
+@keyframes sweep {
+    0% {
+        left: -200%;
+    }
+    100% {
+        left: 200%;
+    }
+}
+
+/* Button Pressed State */
+#nav-bar a:active {
+    transform: translateY(1px); /* Slight push in when clicked */
+    box-shadow: 0 2px 8px rgba(255, 204, 0, 0.4), 0 1px 4px rgba(0, 0, 0, 0.2); /* More compressed shadow */
+}
+
+
+/* Logo Style */
+.logo img {
+    height: 50px;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    #nav-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* General Styling */
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1e1e1e;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.navbar-brand img {
+    width: 40px;
+}
+
+/* Navbar Link Animations */
+.navbar-nav .nav-link {
+    color: #fff !important;
+    margin: 0 15px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f8d210 !important;
+    transform: scale(1.1);
+}
+
+/* Navbar Toggler for Mobile */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28168, 168, 168, 0.9%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
+
+
+
+
+
+        /* Hero Section */
+#hero {
+    background: url('images/Office.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    opacity: 0; /* for loading animation */
+    animation: fadeIn 1s forwards; /* loading animation */
+    animation-delay: 0.5s; /* delay for loading */
+}
+
+/* Overlay */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Headings */
+#hero h1 {
+    font-size: 3.5rem;
+    z-index: 1;
+    margin-bottom: 20px;
+    animation: fadeInDown 2s ease-in-out; /* text animation */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* text shadow */
+}
+
+/* Paragraphs */
+#hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    z-index: 1;
+    animation: fadeInUp 1.5s ease-in-out; /* text animation */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* text shadow */
+}
+
+ #hero .btn {
+            z-index: 1;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, #f8d210, #ffa600);
+            border: none;
+            color: #333;
+            font-weight: bold;
+            transition: all 0.4s;
+        }
+
+/* Button Hover Effect */
+#hero .btn:hover {
+    background: #fff;
+    color: #333;
+    transform: scale(1.05); /* scaling effect on hover */
+}
+
+
+.btn {
+    background: linear-gradient(90deg, #f8d210, #ffa600); /* Vibrant gradient background */
+    border: none;
+    padding: 12px 30px;
+    font-weight: bold;
+    color: #333; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 8px; /* Slightly larger rounded corners for a modern look */
+    position: relative; /* Needed for the light sweep */
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.btn:hover {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    background: linear-gradient(90deg, #ffa600, #f8d210); /* Inverse gradient on hover */
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -75%;
+    width: 200%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.4); /* Light sweep effect */
+    transform: rotate(45deg); /* Angle the light sweep */
+    transition: left 0.5s ease; /* Smooth sweep transition */
+}
+
+.btn:hover::before {
+    left: 125%; /* Move the light sweep across the button */
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); /* Subtle overlay for a glowing effect */
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Smooth fade-in */
+}
+
+.btn:hover::after {
+    opacity: 1; /* Show glow on hover */
+}
+
+
+
+
+
+
+
+
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start from transparent */
+    }
+    to {
+        opacity: 1; /* End fully visible */
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0; /* Start from transparent */
+        transform: translateY(-30px); /* Start from above */
+    }
+    to {
+        opacity: 1; /* End fully visible */
+        transform: translateY(0); /* Move to original position */
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0; /* Start from transparent */
+        transform: translateY(30px); /* Start from below */
+    }
+    to {
+        opacity: 1; /* End fully visible */
+        transform: translateY(0); /* Move to original position */
+    }
+}
+
+/* Applying animation fill mode */
+#hero h1 {
+    animation: fadeInDown 1.5s ease-in-out forwards; /* Use forwards to retain the final state */
+}
+
+#hero p {
+    animation: fadeInUp 1.5s ease-in-out forwards; /* Use forwards to retain the final state */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 2.5rem; /* smaller heading for mobile */
+    }
+    #hero p {
+        font-size: 1.2rem; /* smaller paragraph for mobile */
+    }
+    #hero .btn {
+        padding: 10px 20px; /* smaller button padding for mobile */
+    }
+}
+
+
+
+        /* About Me Section Styles */
+#about {
+    background: linear-gradient(to right, rgba(15, 12, 41, 0.8), rgba(48, 43, 99, 0.8), rgba(36, 36, 62, 0.8));
+    padding: 80px 0;
+    position: relative;
+}
+
+#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+    z-index: -1;
+}
+
+/* About Me Section Heading */
+#about h2 {
+    color: #f8d210;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: 2px; /* Space between letters */
+    text-transform: uppercase; /* Bold styling */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Subtle text shadow for pop */
+}
+
+/* About Me Content */
+#about .about-content {
+    color: #e0e0e0;
+    line-height: 1.8;
+    font-size: 1.1rem; /* Slightly larger for readability */
+    max-width: 800px; /* Restrict the width for better focus */
+    margin: 0 auto;
+}
+
+#about .about-content p {
+    margin-bottom: 25px;
+}
+
+/* About Me Image Styles */
+#about .about-img {
+    text-align: center;
+}
+
+#about .about-img img {
+    width: 85%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); /* Stronger shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+#about .about-img img:hover {
+    transform: scale(1.05); /* Small zoom-in on hover */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.9); /* Enhanced shadow on hover */
+}
+
+/* About Me Button */
+#about .btn-primary {
+    background: linear-gradient(45deg, #007bff, #0056b3); /* Gradient for modern look */
+    border: none;
+    padding: 12px 28px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+    border-radius: 50px; /* Rounded button */
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Add some depth */
+}
+
+#about .btn-primary:hover {
+    background: linear-gradient(45deg, #f8d210, #ffcc00); /* Golden gradient on hover */
+    color: #333;
+    box-shadow: 0 8px 20px rgba(255, 204, 0, 0.6); /* Glow effect on hover */
+    transform: translateY(-3px); /* Lift button slightly */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #about {
+        padding: 50px 20px;
+    }
+
+    #about h2 {
+        font-size: 2rem; /* Slightly smaller heading for mobile */
+    }
+
+    #about .about-img img {
+        width: 100%; /* Full width for mobile */
+        border-radius: 8px;
+    }
+}
+
+
+
+
+       /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #13101a;
+    color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2.5rem;
+    color: #f8d210;
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Portfolio Filters */
+.portfolio-filters {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: #020224;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Portfolio Gallery */
+
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.portfolio-item {
+    position: relative;
+    width: calc(33.333% - 20px); /* Adjust width for 3 columns */
+    aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Flexbox for centering */
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio-item img {
+    width: 100%; /* Make image take up full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure image covers the area without stretching */
+    object-position: center; /* Center the image within its container */
+    aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio (common for video) */
+}
+
+
+
+
+
+
+
+
+
+.portfolio-overlay {
+    position: absolute; /* Positioning relative to the portfolio item */
+    bottom: 0; /* Align overlay to the bottom */
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: white; /* White text color */
+    width: 100%; /* Full width of the portfolio item */
+    padding: 10px; /* Reduced padding for a smaller overlay */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+    opacity: 0; /* Start hidden */
+    display: flex; /* Flexbox for centering content */
+    flex-direction: column; /* Column layout */
+    align-items: center; /* Center content horizontally */
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 0; /* Show overlay on hover */
+}
+
+
+
+
+.portfolio-overlay h3 {
+    margin: 0; /* Remove margin */
+    font-size: 1rem; /* Smaller font size for the title */
+}
+
+
+
+.portfolio-overlay p {
+    font-size: 0.875rem; /* Smaller font size for the description */
+    margin-top: 5px; /* Space above the description */
+}
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .portfolio-item {
+        width: calc(50% - 20px); /* 2 items per row for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-item {
+        width: calc(100% - 20px); /* 1 item per row for smaller screens */
+        aspect-ratio: 4 / 3; /* Change aspect ratio for smaller screens */
+    }
+}
+
+
+
+
+
+/* Hover effects */
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    transform: translateY(-10px);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+
+/* Modern Feature Previews Title */
+.feature-previews-title {
+    font-size: 2.5rem; /* Increase font size for emphasis */
+    font-weight: bold; /* Bold text for prominence */
+    color: #e8e6f0; /* Bright color for contrast */
+    text-align: center; /* Center the title */
+    margin: 20px 0; /* Space above and below the title */
+    position: relative; /* For absolute positioning of the underline */
+}
+
+/* Decorative underline */
+.feature-previews-title::after {
+    content: ""; /* Empty content for the pseudo-element */
+    display: block; /* Make it a block element */
+    width: 60%; /* Width of the underline */
+    height: 4px; /* Height of the underline */
+    background: linear-gradient(90deg, #007bff, #0056b3); /* Gradient effect for the underline */
+    margin: 10px auto 0; /* Center it and add space above */
+    border-radius: 2px; /* Rounded corners for a softer look */
+}
+
+/* Optional shadow effect for a more modern touch */
+.feature-previews-title {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+
+
+
+/* Preview Section */
+.portfolio-preview-section {
+    margin: 40px auto; /* Center the section with auto margins */
+    text-align: center; /* Center text within the section */
+    font-size: 2rem; /* Increase font size for better visibility */
+    color: #ffcc00; /* Bright color for contrast against the background */
+    background-color: #1d243d; /* Dark background for contrast */
+    padding: 50px; /* Add padding for better spacing */
+    border-radius: 8px; /* Rounded corners for the section */
+    max-width: 1200px; /* Max width to prevent stretching on large screens */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+
+/* Container for previews */
+.preview-container {
+    display: flex; /* Keep flex display */
+    flex-direction: column; /* Change to a single column layout */
+    align-items: center; /* Center items horizontally */
+    gap: 20px; /* Gap between rows */
+}
+
+/* Preview Item */
+.preview-item {
+    width: 100%; /* Full width for each item */
+    max-width: 1200px; /* Optional: max width for larger screens */
+    border: 1px solid #ddd; /* Border for visibility */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow content */
+    position: relative; /* For positioning child elements */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+}
+
+/* Responsive Iframe */
+.preview-item iframe {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    aspect-ratio: 16 / 9; /* Keep a 16:9 aspect ratio */
+    border: none; /* Remove default border */
+    border-radius: 8px 8px 0 0; /* Rounded corners at the top */
+}
+
+/* Responsive Image */
+.preview-item img {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area while maintaining aspect ratio */
+    object-position: center; /* Center the image */
+    border-radius: 0 0 8px 8px; /* Rounded corners at the bottom */
+}
+
+/* Paragraph Styles */
+.preview-item p {
+    font-size: 1rem; /* Description text size */
+    margin-top: 10px; /* Space above description */
+    color: #bbb; /* Lighter color for the description */
+}
+
+/* Button Styles for ArtStation */
+.artstation-button {
+    background: linear-gradient(45deg, #007bff, #0056b3); /* Gradient for modern look */
+    border: none;
+    padding: 12px 28px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white; /* White text color */
+    padding: 10px;
+    border-radius: 8px; /* Rounded button */
+    transition: all 0.4s ease; /* Smooth transition for all properties */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Add some depth */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Hover effect for the ArtStation button */
+.artstation-button:hover {
+    background: linear-gradient(45deg, #f8d210, #ffcc00); /* Golden gradient on hover */
+    color: #333; /* Dark text color on hover */
+    box-shadow: 0 8px 20px rgba(255, 204, 0, 0.6); /* Glow effect on hover */
+    transform: translateY(-3px); /* Lift button slightly */
+}
+
+/* Focus effect for accessibility */
+.artstation-button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 4px rgba(255, 204, 0, 0.5); /* Add outline effect for focus */
+}
+
+
+
+
+
+
+
+        /* Contact Section Styles */
+#contact {
+    background: #2c2c2c;
+    padding: 80px 0;
+    text-align: center;
+}
+
+#contact h2 {
+    color: #f8d210;
+    margin-bottom: 30px;
+}
+
+#contact p {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#contact .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#contact .social-icons a {
+    color: #f8d210;
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+#contact .social-icons a:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+#contact .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#contact .contact-form .form-control,
+#contact .contact-form .btn {
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#contact .contact-form .btn-primary {
+    background: linear-gradient(90deg, #f8d210, #ffa600); /* Gradient background */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    padding: 12px 30px; /* Sufficient padding for size */
+    font-weight: bold; /* Bold text */
+    color: #fff; /* White text for contrast */
+    font-size: 1.25rem; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s, filter 0.3s; /* Smooth transitions */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+#contact .contact-form .btn-primary:hover {
+    background: linear-gradient(90deg, #ffa600, #f8d210); /* Reverse gradient on hover */
+    color: #fff; /* Maintain white text color */
+    
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Darker shadow on hover for depth */
+    filter: brightness(1.1); /* Brighten button on hover */
+}
+
+#contact .contact-form .btn-primary:active {
+    transform: translateY(1px); /* Press down effect */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow on click */
+}
+
+
+
+/* Glow Effect for Hover */
+#contact .contact-form .btn-primary:hover::after {
+    content: ''; /* Create a pseudo-element for glow effect */
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Align it to the top */
+    left: 0; /* Align it to the left */
+    right: 0; /* Align it to the right */
+    bottom: 0; /* Align it to the bottom */
+    border-radius: 8px; /* Match button's border radius */
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); /* Glow effect */
+    opacity: 1; /* Fully visible */
+    transition: opacity 0.3s ease; /* Smooth transition for glow */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #contact .social-icons a {
+        font-size: 1.25rem;
+        margin: 0 10px;
+    }
+
+    #contact .contact-form {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    #hero h1 {
+        font-size: 2.5rem; /* Smaller font on small devices */
+    }
+}
+    }
+
+    #contact .social-icons {
+        margin-bottom: 20px;
+    }
+
+    #contact .contact-form .btn-primary {
+        padding: 10px 20px;
+    }
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    footer p {
+        font-size: 0.9rem; /* Slightly smaller font size for mobile devices */
+    }
+}
+
+footer {
+    background-color: #1e1e1e; /* Dark background color */
+    padding: 40px 20px; /* Increased padding for better spacing */
+    text-align: center; /* Center-align text */
+    border-top: 2px solid #f8d210; /* Top border for emphasis */
+    position: relative; /* Allows for any absolute positioning if needed */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    opacity: 0; /* Start with hidden footer */
+    transform: translateY(20px); /* Initial position for animation */
+    animation: fadeInUp 1s forwards; /* Apply fade-in animation */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateY(20px); /* Start lower */
+    }
+    to {
+        opacity: 1; /* End with full opacity */
+        transform: translateY(0); /* Move to original position */
+    }
+}
+
+footer p {
+    color: #ddd; /* Light gray text color */
+    margin: 0;
+    font-size: 1rem; /* Default font size */
+    line-height: 1.5; /* Better line height for readability */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    footer p {
+        font-size: 0.9rem; /* Slightly smaller font size for mobile devices */
+    }
+}
+
+footer p a {
+    color: #f8d210; /* Link color */
+    text-decoration: none; /* No underline */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+footer p a:hover {
+    color: #ffa600; /* Contrasting color on hover */
+    text-decoration: underline; /* Underline on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover for emphasis */
+}
+
+footer small {
+    display: block; /* Display small text as block */
+    color: #aaa; /* Lighter color for less emphasis */
+    margin-top: 10px; /* Space above small text */
+    font-size: 0.8rem; /* Smaller font size */
+}
+
+/* Social Media Icons */
+.footer-icons {
+    margin-top: 15px; /* Space above icons */
+}
+
+.footer-icons a {
+    color: #f8d210; /* Icon color */
+    margin: 0 10px; /* Spacing between icons */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.footer-icons a:hover {
+    color: #ffa600; /* Contrasting color on hover */
+    transform: scale(1.1) rotate(10deg); /* Slightly enlarge and rotate on hover for emphasis */
+}
+
+.footer-icons i {
+    font-size: 1.5rem; /* Icon size */
+    display: inline-block; /* Ensure icons can be animated */
+    animation: bounce 0.5s infinite alternate; /* Bounce animation for icons */
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0); /* Start at original position */
+    }
+    to {
+        transform: translateY(-5px); /* Bounce effect */
+    }
+}
